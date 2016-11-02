@@ -1,5 +1,5 @@
 package edu.mum.hw2.domain;
 
-public enum category {
+public enum Category {
 	COMEDY, DRAMA
 }

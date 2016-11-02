@@ -6,46 +6,45 @@ import javax.persistence.*;
 
 @Entity
 public class Movie {
-	@Id
-	@GeneratedValue
 	private int id;
-	
-	@Column(name="`name`")
 	private String name;
-	@Column(name="`category`")
-	private String category;
-	@Column(name="`cover`")
+	private Category category;
 	private byte[] cover;
 
-	@Column(name="`rating`")
 	private int rating;
 	
-	private List<String> comment;	
+//	private List<String> comment;	
 	private List<Actor> Actors;
 	public Movie() {
 		
 	}
-	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	@Column(name="`name`")
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCategory() {
+
+	@Column(name="`category`")
+	@Enumerated(EnumType.STRING)
+	public Category getCategory() {
 		return category;
 	}
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
-
+	@Column(name="`cover`", length=100000)
 	public byte[] getCover() {
 		return cover;
 	}
@@ -53,23 +52,34 @@ public class Movie {
 	public void setCover(byte[] cover) {
 		this.cover = cover;
 	}
-
-	/*public List<String> getComment() {
+	
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", name=" + name + ", category=" + category + ", cover=" + cover
+				+ ", rating=" + rating + ", Actors=" + Actors + "]";
+	}
+	/*@ElementCollection
+	@CollectionTable(name="comments", joinColumns=@JoinColumn(name="movie_id"))
+	@Column(name="comment")
+	public List<String> getComment() {
 		return comment;
 	}
 
 	public void setComment(List<String> comment) {
 		this.comment = comment;
-	}
-
+	}*/
+	@OneToMany(cascade=CascadeType.ALL)
+	@ElementCollection
+	@CollectionTable(name="Actors", joinColumns=@JoinColumn(name="movie_id"))
+	@Column(name="actor")
 	public List<Actor> getActors() {
 		return Actors;
 	}
 
 	public void setActors(List<Actor> actors) {
 		Actors = actors;
-	}*/
-
+	}
+	@Column(name="`rating`")
 	public int getRating() {
 		return rating;
 	}
