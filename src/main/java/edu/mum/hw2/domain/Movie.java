@@ -68,9 +68,10 @@ public class Movie {
 	public void setComment(List<String> comment) {
 		this.comment = comment;
 	}*/
+	
+	/*@ElementCollection
+	@CollectionTable(name="Actors", joinColumns=@JoinColumn(name="movie_id"))*/
 	@OneToMany(cascade=CascadeType.ALL)
-	@ElementCollection
-	@CollectionTable(name="Actors", joinColumns=@JoinColumn(name="movie_id"))
 	@Column(name="actor")
 	public List<Actor> getActors() {
 		return Actors;
