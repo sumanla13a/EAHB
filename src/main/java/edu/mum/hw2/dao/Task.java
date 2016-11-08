@@ -27,20 +27,9 @@ public class Task {
 		}
 		
 		public void offerService (Volunteer v, edu.mum.hw2.domain.Task t) {
-			Session session = new Session();
-			EntityManager em = session.getEM();
 			if(v.hasRole("listTask")) {
-				EntityTransaction tx = em.getTransaction();
-				try {
-					tx.begin();
-					v.addTask(t);
-					em.persist(v);
-					tx.commit();
-				} catch (Throwable e) {
-					if ((tx != null) && (tx.isActive())) tx.rollback();
-				} finally {
-					if ((em != null) && (em.isOpen())) em.close();
-				}
+				v.addTask(t);
+				Generic.save(v);
 			}
 		}
 		

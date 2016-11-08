@@ -3,8 +3,8 @@ import java.util.*;
 
 import javax.persistence.*;
 @Entity
-@DiscriminatorValue("L")
 public class Volunteer extends User {
+	
 	@OneToMany
 	private List<Task> lTasks;
 

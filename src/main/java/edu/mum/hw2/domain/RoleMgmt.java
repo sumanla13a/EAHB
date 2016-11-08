@@ -11,8 +11,13 @@ public class RoleMgmt {
 	}
 	
 	public boolean hasRole(User u, String activity) {
-		if(u.getRole().equals(Role.ADMIN)) return true;
-		return roleAccess.get(u.getRole().toString()).contains(activity) ? true : false;
+		System.out.println(u.getRole());
+		System.out.println("fff");
+		if(u.getRole().equals("ADMIN")){
+			System.out.println("fuck");
+			return true;
+		} else
+			return roleAccess.get(u.getRole().toString()).contains(activity) ? true : false;
 	}
 
 }
