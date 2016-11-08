@@ -1,10 +1,10 @@
-package edu.mum.hw2.domain;
+/*package edu.mum.hw2.domain;
 
 import java.util.*;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Movie {
 	private int id;
 	private String name;
@@ -58,7 +58,7 @@ public class Movie {
 		return "Movie [id=" + id + ", name=" + name + ", category=" + category + ", cover=" + cover
 				+ ", rating=" + rating + ", Actors=" + Actors + "]";
 	}
-	/*@ElementCollection
+	@ElementCollection
 	@CollectionTable(name="comments", joinColumns=@JoinColumn(name="movie_id"))
 	@Column(name="comment")
 	public List<String> getComment() {
@@ -67,10 +67,10 @@ public class Movie {
 
 	public void setComment(List<String> comment) {
 		this.comment = comment;
-	}*/
+	}
 	
-	/*@ElementCollection
-	@CollectionTable(name="Actors", joinColumns=@JoinColumn(name="movie_id"))*/
+	@ElementCollection
+	@CollectionTable(name="Actors", joinColumns=@JoinColumn(name="movie_id"))
 	@OneToMany(cascade=CascadeType.ALL)
 	@Column(name="actor")
 	public List<Actor> getActors() {
@@ -88,3 +88,4 @@ public class Movie {
 		this.rating = rating;
 	}
 }
+*/

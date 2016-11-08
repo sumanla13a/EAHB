@@ -6,7 +6,12 @@ import java.util.List;
 
 import javax.persistence.*;
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="PROJ_TYPE")
 public class User {
+	@Id
+	@GeneratedValue
+	private int id;
 	private Role role;
 	
 	public Role getRole() {

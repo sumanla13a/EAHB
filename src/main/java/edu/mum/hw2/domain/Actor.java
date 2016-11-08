@@ -1,9 +1,9 @@
-package edu.mum.hw2.domain;
+/*package edu.mum.hw2.domain;
 
 import java.io.Serializable;
 
 import javax.persistence.*;
-@Entity
+//@Entity
 //@Embeddable
 public class Actor {
 
@@ -51,3 +51,4 @@ public class Actor {
 		this.name = name;
 	}
 }
+*/

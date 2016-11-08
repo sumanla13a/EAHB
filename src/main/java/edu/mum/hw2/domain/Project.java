@@ -4,6 +4,9 @@ import java.util.*;
 import javax.persistence.*;
 @Entity
 public class Project {
+	@Id
+	@GeneratedValue
+	private int id;
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	@Temporal(TemporalType.DATE)
